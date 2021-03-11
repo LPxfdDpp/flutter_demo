@@ -85,8 +85,12 @@ class MyRouterDelegate extends RouterDelegate<MyConfiguration> with ChangeNotifi
   @override
   MyConfiguration get currentConfiguration => MyConfiguration(myRoute, tab);
 
+  //这玩意跟web的前进后退无关
   bool _handlePopPage(Route<dynamic> route, dynamic result) {
     final bool success = route.didPop(result);
+
+print(success);
+
     if (success) {
       _myRoute = MyRoute.home;
       notifyListeners();
